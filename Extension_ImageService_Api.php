@@ -97,6 +97,10 @@ class Extension_ImageService_Api {
 		} else {
 			$this->home_url = md5( network_home_url() );
 		}
+
+		if ( empty( $this->license_key ) ) {
+			$this->license_key = '0';
+		}
 	}
 
 	/**
@@ -351,7 +355,7 @@ class Extension_ImageService_Api {
 			array(
 				'method'    => $this->endpoints['usage']['method'],
 				'sslverify' => false,
-				'timeout'   => 10,
+				'timeout'   => 30,
 				'headers'   => array(
 					'Accept' => 'application/json',
 				),
